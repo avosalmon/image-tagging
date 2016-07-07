@@ -2,8 +2,30 @@
 <html>
 <head>
     <title>Image Tagging</title>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
 </head>
 <body>
+<div id="container">
+    <img class="image" src="http://assets.kurashicom.com/blog/uploads/2016/06/diary_photo_1606253.jpg">
+</div>
 
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.image').click(function(event) {
+        var offsetX = event.offsetX;
+        var offsetY = event.offsetY;
+
+        addTag(offsetX, offsetY);
+    });
+
+    function addTag(x, y) {
+        var tag = '<div class="tag-pointer" style="top:' + y + 'px;left:' + x + 'px;"></div>';
+        $(tag).appendTo('#container');
+    }
+});
+</script>
 </body>
 </html>
