@@ -15,8 +15,9 @@
 <script type="text/javascript">
 $(document).ready(function() {
     $('.image').click(function(event) {
-        var offsetX = event.offsetX;
-        var offsetY = event.offsetY;
+        // adjust offset to cursor position
+        var offsetX = event.offsetX - 5;
+        var offsetY = event.offsetY - 7;
 
         addTag(offsetX, offsetY);
     });
@@ -24,6 +25,9 @@ $(document).ready(function() {
     function addTag(x, y) {
         var tag = '<div class="tag-pointer" style="top:' + y + 'px;left:' + x + 'px;"></div>';
         $(tag).appendTo('#container');
+
+        var label = '<div class="tag-label" style="top:' + (y-7) + 'px;left:' + (x+17) + 'px;"><span><a href="">label</a></span></div>';
+        $(label).appendTo('#container');
     }
 });
 </script>
